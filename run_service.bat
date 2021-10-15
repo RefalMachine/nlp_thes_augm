@@ -1,0 +1,1 @@
+python app/app.py --wordnet_path ../data/models/RuWordNet --t5_model_path ../data/models/rut5_base_restorer_1m --gpt2_model_path sberbank-ai/rugpt3small_based_on_gpt2

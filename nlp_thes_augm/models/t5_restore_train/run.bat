@@ -1,0 +1,30 @@
+python run_train.py ^
+--model_name_or_path cointegrated/rut5-base-paraphraser ^
+--src_column corrupted_text ^
+--dst_column text ^
+--train_file D:\WorkFolder\data\augmentation_data_news2017\0_sentences_train.csv ^
+--validation_file D:\WorkFolder\data\augmentation_data_news2017\0_sentences_val.csv ^
+--test_file D:\WorkFolder\data\augmentation_data_news2017\0_sentences_test.csv ^
+--preprocessing_num_workers 4 ^
+--max_source_length 96 ^
+--max_target_length 96 ^
+--max_train_samples 1000000 ^
+--max_eval_samples 5000 ^
+--source_prefix "thes_augm: " ^
+--output_dir D:\WorkFolder\data\t5_augm\rut5_base_restorer_1m ^
+--overwrite_output_dir ^
+--do_train ^
+--do_eval ^
+--do_predict ^
+--evaluation_strategy steps ^
+--per_device_train_batch_size 6 ^
+--per_device_eval_batch_size 6 ^
+--gradient_accumulation_steps 4 ^
+--learning_rate 2e-5 ^
+--num_train_epochs 1 ^
+--warmup_steps 500 ^
+--save_steps 1000 ^
+--eval_steps 500 ^
+--save_total_limit 3 ^
+--logging_dir D:\WorkFolder\data\t5_augm\runs
+pause
