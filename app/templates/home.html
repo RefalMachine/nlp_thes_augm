@@ -135,17 +135,17 @@
 function set_default() {
   ccount = document.getElementById('ccount')
   if (ccount.value == '') {
-    ccount.value = '5';
+    ccount.value = {{ ccount }};
   }
 
   afcount = document.getElementById('afcount')
   if (afcount.value == '') {
-    afcount.value = '500';
+    afcount.value = {{ afcount }};
   }
 
   arcount = document.getElementById('arcount')
   if (arcount.value == '') {
-    arcount.value = '5';
+    arcount.value = {{ arcount }};
   }
 }
 set_default()

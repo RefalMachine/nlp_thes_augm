@@ -197,15 +197,16 @@ class AugmentationApp:
             topk = int(request.form['arcount'])
 
             text = request.form['text']
+            text = ' '.join([w.strip() for w in text.split()])
             augmentations, detected_concepts = augmentator.augmentate(
                 text, augmentations_count=augmentations_count, topk=topk, max_concept_count=max_concept_count, bs=100
             )
             detected_concepts_injected = inject_concept_tokens(detected_concepts, text)
             detected_concepts_injected = self._markup_detected_concepts(detected_concepts_injected)
             augmentation_table = self._generate_table(augmentations)
-            return render_template('home.html', text=text, markup=detected_concepts_injected, augmentation_table=augmentation_table)
+            return render_template('home.html', text=text, markup=detected_concepts_injected, augmentation_table=augmentation_table, ccount=max_concept_count, afcount=augmentations_count, arcount=topk)
 
-        return render_template('home.html')
+        return render_template('home.html', ccount=max_concept_count, afcount=augmentations_count, arcount=topk)
 
     def _markup_detected_concepts(self, detected_concepts_injected):
         words = detected_concepts_injected.split()
